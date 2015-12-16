@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset='utf-8'>
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <link href='https://fonts.googleapis.com/css?family=Architects+Daughter' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="stylesheets/github-light.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="stylesheets/print.css" media="print">
+
+    <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+    <title>Overwatch Sound Export by blindmancs</title>
+  </head>
+
+  <body>
+    <header>
+      <div class="inner">
+        <h1>Overwatch Sound Export</h1>
+        <h2>Quick guide on exporting sound files from CASC.</h2>
+        <a href="https://github.com/blindmancs/overwatch-sound-export" class="button"><small>View project on</small> GitHub</a>
+      </div>
+    </header>
+
+    <div id="content-wrapper">
+      <div class="inner clearfix">
+        <section id="main-content">
+          <h2>
+<a id="quick-tutorial" class="anchor" href="#quick-tutorial" aria-hidden="true"><span class="octicon octicon-link"></span></a>Quick tutorial</h2>
+
+<ol>
+<li>Grab git contents</li>
+<li>Get Tools</li>
+<li>Get Python</li>
+<li>Extract CASC</li>
+<li>Run Python Script</li>
+<li>Enjoy the sound files / contribute</li>
+</ol>
+
+<h3>
+<a id="1-grab-git-contents" class="anchor" href="#1-grab-git-contents" aria-hidden="true"><span class="octicon octicon-link"></span></a>1. Grab git contents</h3>
+
+<p>Just download &amp; place in a folder of your choice.</p>
+
+<h3>
+<a id="2-get-tools" class="anchor" href="#2-get-tools" aria-hidden="true"><span class="octicon octicon-link"></span></a>2. Get Tools</h3>
+
+<p>This project depends on two tools.</p>
+
+<ul>
+<li>ww2ogg -&gt; converts wem format to ogg. <a href="http://hcs64.com/files/ww2ogg019.zip">http://hcs64.com/files/ww2ogg019.zip</a>
+</li>
+<li>revorb -&gt; fixes ogg headers. <a href="http://yirkha.fud.cz/progs/foobar2000/revorb.exe">http://yirkha.fud.cz/progs/foobar2000/revorb.exe</a>
+</li>
+<li>casc tools -&gt; helps us export contents from blizzard archive files. <a href="http://www.zezula.net/en/casc/main.html">http://www.zezula.net/en/casc/main.html</a>
+</li>
+</ul>
+
+<p>Once downloaded,</p>
+
+<p>place ww2ogg -&gt; ww2ogg.exe into the tools folder</p>
+
+<p>place revorb.exe into the tools folder</p>
+
+<p>(tools folder is projectfolder/tools)</p>
+
+<h3>
+<a id="3-get-python" class="anchor" href="#3-get-python" aria-hidden="true"><span class="octicon octicon-link"></span></a>3. Get Python</h3>
+
+<p>This project runs on Python 2.7.
+Grab it from here: <a href="https://www.python.org/downloads/">https://www.python.org/downloads/</a></p>
+
+<h3>
+<a id="4-extract-casc" class="anchor" href="#4-extract-casc" aria-hidden="true"><span class="octicon octicon-link"></span></a>4. Extract CASC</h3>
+
+<ul>
+<li>Use the casc tool to open (OPEN STORAGE) Overwatch\data\casc\config\52\6a\ whatever files is there.</li>
+<li>In the casc folder structure, select the folder "unknown".</li>
+<li>Extract the whole thing to projectfolder/casc</li>
+</ul>
+
+<h3>
+<a id="5-run-python-script" class="anchor" href="#5-run-python-script" aria-hidden="true"><span class="octicon octicon-link"></span></a>5. Run Python script.</h3>
+
+<p>Run the main script.</p>
+
+<p>It will check every exported file's header, and if it's wem format, converts it to ogg.
+Checks against a list of hashes to sort the sound files.</p>
+
+<p>NOTE: As of this moment, this will not extract all files. Comment line 44 &amp; 45 to make the script convert everything to ogg.</p>
+
+<p>By default the script stops after 1000 unknown sound files. (to ease building up the known sound files list)</p>
+
+<p>Current list has ~1000 sound files categorized. Total amount of sounds should be around 17.5k</p>
+
+<h3>
+<a id="6-contribute" class="anchor" href="#6-contribute" aria-hidden="true"><span class="octicon octicon-link"></span></a>6. Contribute</h3>
+
+<p>If you have the time, please get the next batch of audio files &amp; categorize them.</p>
+
+<p>Running the python script will generate an "unknowns.csv" file that contains all the sound files to be categorized.</p>
+
+<p>NOTE: definitely leave in the 1k limit to make sure you don't get a huge csv file that your editor might not handle</p>
+
+<p>db/fingerprints_noise.csv has all the files I considered non-interesting/noise</p>
+
+<p>db/fingerprints_important.csv is everything else.</p>
+
+<p>Structure is always the same in these two files:</p>
+
+<p>hash of the file (stored in unknowns.csv) + path to place at.</p>
+
+<p>you CAN rename in the fingerprints file the sound file to anything (like hanzo_pain_01.ogg). Right now please also leave in the ID you receive in the unknowns.csv (522_hanzo_pain_01.ogg or something)</p>
+
+<p>You can either make a pull request for the fingerprint files if you categorized some more stuff, or send a csv file to me /u/blindmancs</p>
+        </section>
+
+        <aside id="sidebar">
+          <a href="https://github.com/blindmancs/overwatch-sound-export/zipball/master" class="button">
+            <small>Download</small>
+            .zip file
+          </a>
+          <a href="https://github.com/blindmancs/overwatch-sound-export/tarball/master" class="button">
+            <small>Download</small>
+            .tar.gz file
+          </a>
+
+          <p class="repo-owner"><a href="https://github.com/blindmancs/overwatch-sound-export"></a> is maintained by <a href="https://github.com/blindmancs">blindmancs</a>.</p>
+
+          <p>This page was generated by <a href="https://pages.github.com">GitHub Pages</a> using the Architect theme by <a href="https://twitter.com/jasonlong">Jason Long</a>.</p>
+        </aside>
+      </div>
+    </div>
+
+            <script type="text/javascript">
+            var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+            document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+          </script>
+          <script type="text/javascript">
+            try {
+              var pageTracker = _gat._getTracker("UA-31546636-1");
+            pageTracker._trackPageview();
+            } catch(err) {}
+          </script>
+
+  </body>
+</html>
