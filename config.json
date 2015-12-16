@@ -1,0 +1,11 @@
+{
+	"full_extract": false,
+	"paths": {
+		"noise": "db/fingerprints_noise.csv",
+		"important": "db/fingerprints_important.csv",
+		"unknowns": "db/unknowns.csv",
+		"tools": "tools/",
+		"exported": "exported/",
+		"casc": "casc/unknown/"
+	}
+}
