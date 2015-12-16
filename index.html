@@ -59,11 +59,10 @@
 </li>
 </ul>
 
-<p>Once downloaded,</p>
-
-<p>place ww2ogg -&gt; ww2ogg.exe into the tools folder</p>
-
-<p>place revorb.exe into the tools folder</p>
+<p>Once downloaded, place the following files directly into the tools folder:
+*ww2ogg -&gt; ww2ogg.exe
+*ww2ogg -&gt; packed_codebooks_aoTuV_603.bin
+*revorb.exe</p>
 
 <p>(tools folder is projectfolder/tools)</p>
 
@@ -90,9 +89,9 @@ Grab it from here: <a href="https://www.python.org/downloads/">https://www.pytho
 <p>It will check every exported file's header, and if it's wem format, converts it to ogg.
 Checks against a list of hashes to sort the sound files.</p>
 
-<p>NOTE: As of this moment, this will not extract all files. Comment line 44 &amp; 45 to make the script convert everything to ogg.</p>
+<p>NOTE: By default, this will not extract all files. Visit config.json and change "full_extract" from false to true to get all the ogg files.</p>
 
-<p>By default the script stops after 1000 unknown sound files. (to ease building up the known sound files list)</p>
+<p>By default the script stops after 1000 unknown sound files.</p>
 
 <p>Current list has ~1000 sound files categorized. Total amount of sounds should be around 17.5k</p>
 
@@ -111,7 +110,7 @@ Checks against a list of hashes to sort the sound files.</p>
 
 <p>Structure is always the same in these two files:</p>
 
-<p>hash of the file (stored in unknowns.csv) + path to place at.</p>
+<p>hash of the file (find it in unknowns.csv) + path to place at.</p>
 
 <p>you CAN rename in the fingerprints file the sound file to anything (like hanzo_pain_01.ogg). Right now please also leave in the ID you receive in the unknowns.csv (522_hanzo_pain_01.ogg or something)</p>
 
