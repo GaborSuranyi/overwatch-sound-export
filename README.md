@@ -38,6 +38,10 @@ Grab it from here: https://www.python.org/downloads/
 ### 5. Run Python script.
 Run the main script.
 
+#### 5a. How?
+If you don't know too much about python, open up the attached run_extract.bat file with a text editor, and check if the path to python.exe is correct. (compare it to the place where you installed Python 2.7)
+Then, just run the bat file. It will launch the python script.
+
 It will check every exported file's header, and if it's wem format, converts it to ogg.
 Checks against a list of hashes to sort the sound files.
 
